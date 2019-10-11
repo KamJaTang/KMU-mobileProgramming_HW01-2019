@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:text="D-day"
+        android:textColor="#FF9DBC"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/today"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="20dp" />
+
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        >
+
+        <EditText
+            android:id="@+id/inpY"
+            android:layout_width="100dp"
+            android:layout_marginRight="5dp"
+            android:gravity="center_horizontal"
+            android:backgroundTint="#FF9DBC"
+            android:drawableTint="#FF9DBC"
+            android:hint="YYYY"
+            android:inputType="number"
+            android:textSize="30dp" />
+
+        <EditText
+            android:id="@+id/inpM"
+            android:layout_width="60dp"
+            android:gravity="center_horizontal"
+            android:backgroundTint="#FF9DBC"
+            android:drawableTint="#FF9DBC"
+            android:hint="MM"
+            android:inputType="number"
+            android:textSize="30dp" />
+
+        <EditText
+            android:id="@+id/inpD"
+            android:layout_width="60dp"
+            android:gravity="center_horizontal"
+            android:layout_marginLeft="5dp"
+            android:backgroundTint="#FF9DBC"
+            android:drawableTint="#FF9DBC"
+            android:hint="DD"
+            android:inputType="number"
+            android:textSize="30dp" />
+    </TableRow>
+
+    <TextView
+        android:id="@+id/dStr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:text="D-day"
+        android:textColor="#FF8BB4"
+        android:textSize="70dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/calculateBtn"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:gravity="center"
+        android:layout_marginTop="100dp"
+        android:background="#FFCDDB"
+        android:text="계산하기"/>
+
+    <Button
+        android:id="@+id/logoutBtn"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:background="#D8D8D8"
+        android:text="로그아웃" />
+
+</TableLayout>
