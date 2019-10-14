@@ -17,7 +17,7 @@ public class ThirdActivity extends Activity {
     EditText inpY, inpM, inpD;
     Calendar calendar, dCalendar;
     boolean isTrue;
-    String errorStr = "날짜 입력이 틀렸습니다.";
+    String errorStr = "날짜 입력을 확인해주세요..";
 
     private int tYear, tMonth, tDay, resultNum, dYear, dMonth, dDay;
     private long d, t, r;
@@ -52,34 +52,35 @@ public class ThirdActivity extends Activity {
         calculateBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                dYear = Integer.parseInt(inpY.getText().toString());
-                dMonth = Integer.parseInt(inpM.getText().toString());
-                dDay = Integer.parseInt(inpD.getText().toString());
-                isTrue = false;
+                if(hasTxt(inpY)&&hasTxt(inpM)&&hasTxt(inpD)){
 
-                if(dMonth == 0 || dMonth == 2 || dMonth == 4 || dMonth == 6 || dMonth == 7 || dMonth == 9 || dMonth == 11){
-                    if(dDay>=1 && dDay<=31) isTrue = true;
-                }
-                else if (dMonth == 3 || dMonth == 5 || dMonth == 8 || dMonth == 10 ){
-                    if(dDay>=1 && dDay<=30) isTrue = true;
-                }
-                else if(dMonth == 1){
-                    if(dYear%4==0)
-                        if(dDay>=1 && dDay<=29) isTrue = true;
-                    else if(dDay>=1 && dDay<=28) isTrue = true;
+                    dYear = Integer.parseInt(inpY.getText().toString());
+                    dMonth = Integer.parseInt(inpM.getText().toString());
+                    dDay = Integer.parseInt(inpD.getText().toString());
+                    isTrue = false;
 
-                }
+                    if (dMonth == 0 || dMonth == 2 || dMonth == 4 || dMonth == 6 || dMonth == 7 || dMonth == 9 || dMonth == 11) {
+                        if (dDay >= 1 && dDay <= 31) isTrue = true;
+                    } else if (dMonth == 3 || dMonth == 5 || dMonth == 8 || dMonth == 10) {
+                        if (dDay >= 1 && dDay <= 30) isTrue = true;
+                    } else if (dMonth == 1) {
+                        if (dYear % 4 == 0)
+                            if (dDay >= 1 && dDay <= 29) isTrue = true;
+                            else if (dDay >= 1 && dDay <= 28) isTrue = true;
 
-                if(isTrue){
-                    resultNum = calcuateDDay();
-                    if(resultNum>0){
-                        dStr.setText(String.format("D-%d",resultNum));
                     }
-                    else if(resultNum==0){
-                        dStr.setText(String.format("D-day"));
-                    }
-                    else{
-                        dStr.setText(String.format("D+%d",Math.abs(resultNum)));
+
+                    if (isTrue) {
+                        resultNum = calcuateDDay();
+                        if (resultNum > 0) {
+                            dStr.setText(String.format("D-%d", resultNum));
+                        } else if (resultNum == 0) {
+                            dStr.setText(String.format("D-day"));
+                        } else {
+                            dStr.setText(String.format("D+%d", Math.abs(resultNum)));
+                        }
+                    } else {
+                        Toast.makeText(getApplicationContext(), errorStr, Toast.LENGTH_SHORT).show();
                     }
                 }
                 else{
@@ -100,4 +101,9 @@ public class ThirdActivity extends Activity {
 
         return (int)r;
     }
+
+    private boolean hasTxt(EditText et){
+        return (et.getText().toString().trim().length() > 0);
+    }
+
 }
